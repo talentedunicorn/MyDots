@@ -1,0 +1,38 @@
+# Conky Made By Talented Unicorn
+# For satisfactory usage consider the following dependencies:
+# Fonts: artwiz-fonts (for Arch Linux it's on the AUR), the rest go here http://artwizaleczapka.sourceforge.net/
+
+
+own_window yes 
+own_window_colour 414140 #262729
+own_window_transparent no 
+own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+use_spacer none #right 
+use_xft yes
+#font snap-7
+xftfont cure:size=19
+xftalpha 1
+text_buffer_size 2048 
+alignment top_left
+gap_x 5 
+gap_y 3
+
+# --- Colours, Sizes, Fonts & Margins --- #
+update_interval 1.0
+stippled_borders 0
+minimum_size 1366 3
+maximum_width 1366 2
+border_margin 3
+border_width 0 
+default_color 5e7175
+# --- Text --- #
+draw_outline no
+draw_borders no
+#font -*-profont-*-*-*-11-*-*-*-*-*-*-* 
+uppercase no
+draw_shades no 
+
+TEXT
+${if_match ${desktop}==1}${color1}${endif}A${color}${offset 10}${if_match ${desktop}==2}${color1}${endif}R${color}${offset 10}${if_match ${desktop}==3}${color1}${endif}C${color}${offset 10}${if_match ${desktop}==4}${color1}${endif}H${color}${alignc}${color f92672}The Time is: ${color 00CBEE} ${time %l:%M %p} ${color f92672} on ${color 00CBEE} ${time %a %d, %B} ${color} | ${color f92672} ${if_mpd_playing} ${mpd_status} - ${scroll 35 5 ${mpd_smart}} [${mpd_elapsed}/${mpd_length}] $endif ${color} | ${color fd971f} Uptime ${color d3d3d3} $uptime_short ${color}| ${color beed5f}Battery ${color d3d3d3} ${battery_short} ${battery_time} ${color} | ${color 9e6ffe}Cpu: ${color d3d3d3}${cpu 4}%${color} | ${color 00CBEE}Ram: ${color d3d3d3}${mem}/${memmax}${color} | ${color}Home: ${color e0e0e0}${font}${fs_used /home}/${fs_size /home} ${fs_bar 5,30 /home}${color} |  ${color} Down: ${color e0e0e0} ${downspeed wlan0}${color} | ${color D45959} Up: ${color} ${color e0e0e0} ${upspeed wlan0}${alignc} 
