@@ -3,4 +3,19 @@ README File created by:
 TalentedUnicorn
 --------------------------
 
-Does not do shit!
+This is intended to guide users on how to use GIT
+
+1. Adding a new file / Folder
+
+- Create file
+- git status // to see the status
+- git add [filename/dir]
+- git reset HEAD [filename/dir] // This unstages the file 
+- git diff // Shows the changes made to the file btn staging area and working area
+- git commit // To commit changes, this opens an editor 
+
+
+2. Staging modified files
+- git add [filename/dir]
+
+3. 
