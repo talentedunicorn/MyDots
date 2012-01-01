@@ -53,4 +53,8 @@ Going Remote:
 - git fetch [remote-name] // Just fetches remote files from server 
 - git pull [remote-name] // Fetches and tries to merge changes 
 
+4. Pushing 
+- git push [remote-name] [branch-name] // Only works if you have write access 
 
+5. Information on server
+- git remote show [remote-name] 

@@ -1,6 +1,3 @@
--- Theme By Kanine5 
--- Install artwiz fonts for exact results
--- ----------------------------------------
 -- Standard awesome library
 require("awful")
 require("awful.autofocus")
@@ -9,15 +6,37 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
-
--- I added these
+-- User added libraries
 require("vicious")
 
+-- {{{ Error handling
+-- Check if awesome encountered an error during startup and fell back to
+-- another config (This code will only ever execute for the fallback config)
+if awesome.startup_errors then
+    naughty.notify({ preset = naughty.config.presets.critical,
+                     title = "Oops, there were errors during startup!",
+                     text = awesome.startup_errors })
+end
+
+-- Handle runtime errors after startup
+do
+    local in_error = false
+    awesome.add_signal("debug::error", function (err)
+        -- Make sure we don't go into an endless error loop
+        if in_error then return end
+        in_error = true
+
+        naughty.notify({ preset = naughty.config.presets.critical,
+                         title = "Oops, an error happened!",
+                         text = err })
+        in_error = false
+    end)
+end
+-- }}}
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
---beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init("/home/zeki/.config/awesome/themes/default/theme.lua")
+beautiful.init("/home/talentedunicorn/.config/awesome/themes/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "terminator"
@@ -53,14 +72,11 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-
-    names = { "term", "web", "work", "mail", "misc"},
-   -- layout = {layout[1], layout[1], layout[1], layout[1], layout[1], layout[1], layout[1], layout[1], layout[1] }
+	names = { "♠", "♥", "♣", "♦"},
 }
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    --tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
-    tags[s] = awful.tag(tags.names, s, layout)
+	tags[s] = awful.tag(tags.names, s, layout)
 end
 -- }}}
 
@@ -68,20 +84,28 @@ end
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
+   { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
-   
 }
 
 internet = {
-   { "Browser", "google-chrome" },
+   { "Firefox", "firefox" },
+   { "Chromium", "chromium" },
    { "Mail", "thunderbird" },
+   { "Liferea", "" },
    { "Skype", "skype" },
    { "IM Messenger", "pidgin" },
    { "IRC", "xchat" },
    { "Miro", "miro" },
+   { "Jdownloader", "jdownloader" },
 }
+
+games = {
+	{ "World Of Goo", "WorldOfGoo" },
+	{ "Frozen Synapse", "frozensynapse" },
+	{ "0 AD ", "" },
+} 
 
 myoffice = {
     { "Word Processor", "soffice --writer"},
@@ -96,23 +120,29 @@ utilities = {
     
 }
 
+multimedia = {
+	{ "Clementine", "clementine" },
+	{ "Audacious", "audacious" },
+	{ "Mixxx", "mixxx"},
+}
+
 settings = {
 	{ "Change Wallpaper", "nitrogen" },
 	{ "Change Themes", "lxappearance" },
 }
 
 places = {
-	{ "Home", "thunar /home/zeki" },
+	{ "Home", "thunar /home/talentedunicorn" },
 	{ "Storage", "thunar /media/Storage" },
-	{ "Downloads", "thunar /home/zeki/Downloads" },
-	{ "Sem2", "thunar /media/Storage/Files/Courses/3rd_year/Sem2/" },
+	{ "Downloads", "thunar /home/talentedunicorn/Downloads" },
+	{ "Sem3", "thunar /media/Storage/Files/Courses/3rd_year/Sem3/" },
 }
 
 
 mypowermenu = {
-   { "Lock Screen", "/home/zeki/bin/myXlock"},
-   { "Standby", "sudo s2ram" },
-   { "Hibernate", "sudo s2disk" },
+   { "Lock Screen", "/home/talentedunicorn/bin/myXlock"},
+   { "Standby", "sudo pm-suspend" },
+   { "Hibernate", "sudo pm-hibernate" },
    { "Reboot", "sudo reboot" },
    { "Shutdown", "sudo shutdown -h +0" }
 }
@@ -121,6 +151,8 @@ mymainmenu = awful.menu({ items = {
 				    { "Places", places,  beautiful.awesome_icon },
 					 { "Internet", internet },
                      { "Office", myoffice },
+					 { "Multimedia", multimedia },
+					 { "Games", games },
                      { "Utilities", utilities },
 					 { "Config", settings },
 					 { "awesome", myawesomemenu },
@@ -128,73 +160,65 @@ mymainmenu = awful.menu({ items = {
                                   }
                         })
 
+
 mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
                                      menu = mymainmenu })
 -- }}}
 
 -- {{{ Wibox
--- Vicious
--- --------------------------------------
--- Memory usage
-memwidget = widget({ type = "textbox" })
-vicious.register(memwidget, vicious.widgets.mem, "<span color='#01DF3A'>RAM : $2Mb</span>", 5)
--- Cpu usage
-cpuwidget = widget({ type = "textbox" })
-vicious.register( cpuwidget, vicious.widgets.cpu, "<span color = '#FE9A2E'>CPU : $1% </span>")
+-- Widgets
+---------------------------------------------------------
+-- Separators
+separator = widget({ type="textbox" })
+separator.text = " ⌘ "
 
--- MPD widget
+-- MPD Widget
 mpdwidget = widget({ type = "textbox" })
-vicious.register( mpdwidget, vicious.widgets.mpd,
-            function (widget, args)
+vicious.register(mpdwidget, vicious.widgets.mpd, 
+		function (widget, args)
                if args["{state}"] == "Stop" then
-                  return "not playing"
+                  return "<span color='#FFFF00'> ♪ not playing</span>"
                elseif args["{state}"] == "Pause" then 
-                  return "Paused : " .. args["{Artist}"] .. " - " .. args["{Title}"]
+                  return "<span color='#74C0CF'> ♪</span>Paused : " .. args["{Artist}"] .. " - " .. args["{Title}"]
                else
-                  return "Playing : ".. args["{Artist}"] .. " - " .. args["{Title}"]
+                  return "<span color='#F78181'> ♪</span>Playing : ".. args["{Artist}"] .. " - " .. args["{Title}"]
                end
-            end, 4)
+        end, 5)
 
--- Uptime
+-- Uptime Widget
 uptimewidget = widget({ type = "textbox" })
-vicious.register( uptimewidget, vicious.widgets.uptime, "<span color = '#D97672'> Uptime : $1d $2h $3min </span>")
-
--- System
-syswidget = widget({ type = "textbox" })
-vicious.register( syswidget, vicious.widgets.os, "<span color = '#58ACFA'> Arch Linux : $2</span>")
+vicious.register( uptimewidget, vicious.widgets.uptime, "<span color = '#F78181'> Uptime : $1d $2h $3min </span>")
 
 -- Wifi widget
 wifiwidget = widget({ type = "textbox" })
-vicious.register( wifiwidget, vicious.widgets.wifi, "<span color = '#FE2EF7'>wifi : ${ssid} rate: ${rate}MB/s link: ${link}/70</span>", 5, "wlan0")
+vicious.register( wifiwidget, vicious.widgets.wifi, "<span color = '#F78181'>wifi : ${ssid} rate: ${rate}MB/s link: ${link}/70</span>", 5, "wlan0")
 
--- Battery usage
-powermenu = awful.menu({items = {
-			     { "Ondemand" , function () awful.util.spawn("sudo cpufreq-set -g ondemand -r", false) end },
-			     { "Powersave" , function () awful.util.spawn("sudo cpufreq-set -g powersave -r", false) end },
-			     { "Performance" , function () awful.util.spawn("sudo cpufreq-set -g performance -r", false) end },
-			     { "pm-powersave" , function () awful.util.spawn("sudo pm-powersave", false) end }
-			  }
-		       })
+-- Battery Widget
 battwidget = widget({ type = "textbox" })
-vicious.register( battwidget, vicious.widgets.bat, "<span color = '#FFFF00'>Battery : state: $1 load: $2%</span>", 13, "BAT0" )
-battwidget:buttons(awful.util.table.join(
-					 awful.button({ }, 1, function () powermenu:toggle() end )
-				   ))
+vicious.register( battwidget, vicious.widgets.bat, "<span color = '#66FF33'>Battery : state: $1 load: $2%</span>", 10, "BAT0" )
 
+-- Cpu widget
+cpuwidget = widget({ type = "textbox" })
+vicious.register( cpuwidget, vicious.widgets.cpu, "<span color = '#FE9A2E'>CPU : $1% </span>")
 
--- ----------------------------------------------------------------------------------
+-- Memory widget
+memwidget = widget({ type = "textbox" })
+vicious.register(memwidget, vicious.widgets.mem, "<span color='#01DF3A'>RAM : $2Mb</span>", 5)
+
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" }, "<span color = '#F78181'>%a, %d %b %Y ^ %I:%M %p</span>")
+mytextclock = awful.widget.textclock({ align = "right" }, "<span color = '#F78181'>%a, %d %b ^ %I:%M %p</span>")
 
--- Create a separator text
-separator = widget({ type = "textbox" })
-separator.text = " >> " 
+-- Volume widget
+volwidget = widget({ type = "textbox" })
+-- Register widgets
+vicious.register(volwidget, vicious.widgets.volume, "<span color='#7eb8d2'>Vol: $1%</span>", 2, "Master")
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
+
 -- Create a wibox for each screen and add it
-topbar = {}
-bottombar = {}
+topwibox = {}
+bottomwibox = {}
 mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
@@ -257,45 +281,43 @@ for s = 1, screen.count() do
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
 
-    -- Create the wibox
-    -- Top Wibox
-    topbar[s] = awful.wibox({ position = "top", screen = s })
-    -- Bottom Wibox
-    bottombar[s] = awful.wibox({ position = "bottom", screen = s })
+    -- Create the wiboxes
+    topwibox[s] = awful.wibox({ position = "top", screen = s })
+    bottomwibox[s] = awful.wibox({ position = "bottom", screen = s })
+    
     -- Add widgets to the wibox - order matters
-    topbar[s].widgets = {
+    topwibox[s].widgets = {
         {
+            mylauncher,
             mytaglist[s],
             mypromptbox[s],
-            separator,
+			separator,
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
+        mytextclock,
+		separator,
+		volwidget,
+		separator,
         s == 1 and mysystray or nil,
-        separator, 
+		separator,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
-    bottombar[s].widgets = {
-		  {
-			  mylauncher,
-			  syswidget,
-			  separator,
-			  uptimewidget,
-			  layout = awful.widget.layout.horizontal.leftright
-		  },
-        mytextclock,
-        separator, 
-		  mpdwidget,
-		  separator,
-		  cpuwidget,
-        separator,
-        memwidget,
-		  separator,
-		  wifiwidget,
-		  separator,
-		  battwidget,
-        layout = awful.widget.layout.horizontal.rightleft
+    
+    bottomwibox[s].widgets = {
+		uptimewidget,
+		separator,
+		mpdwidget,
+		separator,
+		battwidget,
+		separator,
+		cpuwidget,
+		separator,
+		memwidget,
+		separator,
+		wifiwidget,
+		layout = awful.widget.layout.horizontal.leftright
 
     }
 end
@@ -356,18 +378,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
-
-    -- User Added Keys
+	
+	-- User Added Keys
     awful.key({ modkey,           }, "b", function () awful.util.spawn("firefox") end),
-    awful.key({ modkey,           }, "l", function () awful.util.spawn("/home/zeki/bin/myXlock") end),
+    awful.key({ modkey,           }, "l", function () awful.util.spawn("/home/talentedunicorn/bin/myXlock") end),
     awful.key({ modkey,   "Shift" }, "f", function () awful.util.spawn("thunar") end), 
-    -- Volume Control 
-
-    awful.key({ " ",           }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 5%+ unmute") end),
-    awful.key({ " ",           }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 5%- unmute") end),
-    awful.key({ " ",           }, "XF86AudioMute", function () awful.util.spawn("amixer set Master toggle") end),
-
-
+		
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
@@ -500,13 +516,3 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
--- Autorun Applications
-awful.util.spawn_with_shell("run_once volwheel")
-awful.util.spawn_with_shell("run_once dropboxd")
-awful.util.spawn_with_shell("run_once tomboy")
-awful.util.spawn_with_shell("run_once parcellite")
-awful.util.spawn_with_shell("run_once mpd /home/zeki/.mpd/mpd.conf")
-
-
-
