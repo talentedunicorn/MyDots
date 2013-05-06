@@ -1,0 +1,8 @@
+# Aliases
+# Package Management
+
+alias installpkg='sudo apt-get install'
+alias removepkg='sudo apt-get remove'
+alias repoupdate='sudo apt-get update'
+alias findpkg='apt-cache search'
+alias sysupdate='repoupdate && sudo apt-get upgrade'
