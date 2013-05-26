@@ -1,41 +1,31 @@
-#
-# ~/.bashrc
-#
+# Bashrc by Talented Unicorn
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-# Aliases 
-# ============
-
-# Modified Commands
-alias ls='ls --color=auto'
-alias vimdiff='vimdiff -c 'set diffopt=filler,context:1000000''
-
-# Package management
-alias update_official='yaourt -Syu'
-alias update_all='yaourt -Syu --aur'
-alias findpkg='yaourt -Ss'
-alias installpkg='yaourt -S'
-alias removepkg='yaourt -Rsn'
-
-# Shortcuts
-alias storage='cd /media/Storage'
-alias webserver='cd /opt/lampp/htdocs'
-
-# Prompt Configuration 
-PS1='[\u | \w]\n>> '
-
-# Enviromental Paths
-export PATH=$PATH:/home/talentedunicorn/bin:/opt/lampp
-
-# To make minitube 1.6-1 work
-export QT_PLUGIN_PATH=/usr/lib/kde4/plugins
-
-# For separator lines in PS1
-if [ -f "$HOME/.bash_ps1" ]; then
-
-. "$HOME/.bash_ps1"
-
+# Enable programmable completion features.
+if [ -f /etc/bash_completion ]; then
+    source /etc/bash_completion
 fi
 
+# Set the default editor to vim.
+export EDITOR=vim
+
+# Add bash aliases.
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
+# Paths
+########
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# PATH for lampp
+export PATH=$PATH:/opt/lampp
+
+# Stuff to run
+##############
+
+# dircolors
+eval `dircolors ~/.dircolors`
