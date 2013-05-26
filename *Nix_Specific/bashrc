@@ -20,3 +20,12 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# PATH for lampp
+export PATH=$PATH:/opt/lampp
+
+# Stuff to run
+##############
+
+# dircolors
+eval `dircolors ~/.dircolors`
