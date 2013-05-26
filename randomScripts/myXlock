@@ -1,5 +1,0 @@
-#!/bin/bash
-
-xlock -mousemotion +description -mode "marquee" -bg "black" -fg "grey30" -font 'fixed' -planfont 'fixed' -timeout 6 -info "Enter password if u live here, otherwise BEAT IT" -username " " -password "Password" -icongeometry '10x10' -program 'fortune' -messagefont 'fixed' 
-
-
