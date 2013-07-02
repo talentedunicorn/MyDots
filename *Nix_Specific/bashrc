@@ -27,5 +27,12 @@ export PATH=$PATH:/opt/lampp
 # Stuff to run
 ##############
 
-# dircolors
-eval `dircolors ~/.dircolors`
+# dircolors - for my ls fix script on solarize color scheme
+if [ -f ~/.dircolors ]; then 
+	eval `dircolors ~/.dircolors`
+fi 
+
+# Cool separator line
+if [ -f "$HOME/bin/bash_ps1" ]; then
+. "$HOME/bin/bash_ps1"
+fi
