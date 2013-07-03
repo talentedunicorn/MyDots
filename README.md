@@ -1,4 +1,4 @@
-MyDots - Configuration stripts I can't live without
+MyDots - Configuration scripts I can't live without
 --------------------------------------------------
 
 Description of each folder
