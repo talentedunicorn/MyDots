@@ -122,3 +122,8 @@ fi
 if [ -d "/opt/lampp" ] ; then
 export PATH=$PATH:/opt/lampp
 fi
+
+# Run git prompt 
+if [ -f .git_prompt ]; then
+	. .git_prompt
+fi
