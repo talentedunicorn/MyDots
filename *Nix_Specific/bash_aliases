@@ -14,3 +14,4 @@ alias sudo='sudo env PATH=$PATH'
 # LAMPP
 alias webserverstart='sudo lampp start'
 alias webserverstop='sudo lampp stop'
+alias webroot='cd /opt/lampp/htdocs'
