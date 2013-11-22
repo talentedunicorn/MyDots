@@ -56,12 +56,28 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	PS1="[\w] \$ "
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+	PS1="[\w] \$ "
+    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
+
+# Check for an interactive session
+[ -z "$PS1" ] && return
+
+_PROMPT() {
+    _EXIT_STATUS=$?
+    [ $_EXIT_STATUS != 0 ] && _EXIT_STATUS_STR="\[\033[1;30m\][\[\033[1;31m\]$_EXIT_STATUS\[\033[1;30m\]] "
+    PS1="\[\033[2;34m\]\u\[\033[0m\]╺─╸$_EXIT_STATUS_STR\[\033[1;30m\][\[\033[0m\]\W\[\033[1;30m\]]\[\033[1;34m\]$\[\033[0m\] "
+    unset _EXIT_STATUS_STR
+}
+
+PROMPT_COMMAND=_PROMPT
+
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
