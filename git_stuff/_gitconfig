@@ -1,0 +1,12 @@
+[user]
+	name = Ezekiel Mangalu
+	email = emangalu@gmail.com
+[core]
+	autocrlf = true
+
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+[push]
+	default = simple
