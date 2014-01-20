@@ -72,7 +72,8 @@ unset color_prompt force_color_prompt
 _PROMPT() {
     _EXIT_STATUS=$?
     [ $_EXIT_STATUS != 0 ] && _EXIT_STATUS_STR="\[\033[1;30m\][\[\033[1;31m\]$_EXIT_STATUS\[\033[1;30m\]] "
-    PS1="\[\033[2;34m\]\u\[\033[0m\]╺─╸$_EXIT_STATUS_STR\[\033[1;30m\][\[\033[0m\]\W\[\033[1;30m\]]\[\033[1;34m\]$\[\033[0m\] "
+    # PS1="\[\033[2;34m\]\u\[\033[0m\]╺─╸$_EXIT_STATUS_STR\[\033[1;30m\][\[\033[0m\]\W\[\033[1;30m\]]\[\033[1;34m\]$\[\033[0m\] "
+    PS1="\[\033[0m\]\u\[\033[0m\]╺─╸$_EXIT_STATUS_STR\[\033[1;30m\][\[\033[0m\]\W\[\033[1;30m\]]\[\033[1;34m\]$\[\033[0m\] "	
     unset _EXIT_STATUS_STR
 }
 
@@ -136,10 +137,15 @@ fi
 
 # PATH for lampp
 if [ -d "/opt/lampp" ] ; then
-export PATH=$PATH:/opt/lampp
+export PATH=/opt/lampp:/opt/lampp/bin:$PATH
 fi
 
 # Run git prompt 
 if [ -f .git_prompt ]; then
 	. .git_prompt
+fi
+
+# Git-flow completion 
+if [ -f ~/.git-flow-completion.bash ]; then
+	source ~/.git-flow-completion.bash
 fi
