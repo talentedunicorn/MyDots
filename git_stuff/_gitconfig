@@ -8,5 +8,9 @@
 	st = status
 	co = checkout
 	ci = commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	hist = log --graph --decorate --pretty=oneline --abbrev-commit
 [push]
 	default = simple
+[color]
+	ui = auto
