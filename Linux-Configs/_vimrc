@@ -1,0 +1,18 @@
+" Vimrc By Talented Unicorn 
+" --------------------------
+
+" Edit
+set number			" Set line number on
+set textwidth=100	" Line wrap (number of cols)
+set showmatch		" Highlight matching brace
+set visualbell		" Use visual bell (no beeping)
+set autoindent		" Auto-indent new lines
+set smartindent		" Enable smart-indent
+set shiftwidth=4	" Auto indent spaces
+set smarttab		" Enable smart-tab
+set softtabstop=4	" Number of spaces per tab
+
+" Search
+set hlsearch		" Highlight search results
+set smartcase		" Enable smart-case search
+set ignorecase		" Ignore case in search ALWAYS
