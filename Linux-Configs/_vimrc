@@ -2,7 +2,7 @@
 " --------------------------
 
 " Edit
-set number			" Set line number on
+set number		" Set line number on
 set textwidth=100	" Line wrap (number of cols)
 set showmatch		" Highlight matching brace
 set visualbell		" Use visual bell (no beeping)
@@ -16,3 +16,5 @@ set softtabstop=4	" Number of spaces per tab
 set hlsearch		" Highlight search results
 set smartcase		" Enable smart-case search
 set ignorecase		" Ignore case in search ALWAYS
+
+set modifiable		" enable modifiable
