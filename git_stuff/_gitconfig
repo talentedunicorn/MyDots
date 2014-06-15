@@ -5,6 +5,7 @@
 	autocrlf = true
 
 [alias]
+	b  = branch
 	st = status
 	co = checkout
 	ci = commit
