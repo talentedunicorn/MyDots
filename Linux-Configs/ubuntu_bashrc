@@ -108,11 +108,16 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
 # PATH for lampp
-if [ -d "/opt/lampp" ] ; then
+if [ -d "/opt/lampp" ]; then
 export PATH=/opt/lampp:/opt/lampp/bin:$PATH
+fi
+
+# Git Bash prompt
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    source $HOME/.bash-git-prompt/gitprompt.sh
 fi
