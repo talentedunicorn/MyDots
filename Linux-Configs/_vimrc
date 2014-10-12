@@ -10,7 +10,7 @@ set autoindent		" Auto-indent new lines
 set smartindent		" Enable smart-indent
 set shiftwidth=4	" Auto indent spaces
 set smarttab		" Enable smart-tab
-set softtabstop=4	" Number of spaces per tab
+set tabstop=4		" Number of spaces per tab
 
 " Search
 set hlsearch		" Highlight search results
