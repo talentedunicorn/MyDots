@@ -2,7 +2,7 @@
 	name = Ezekiel Mangalu
 	email = emangalu@gmail.com
 [core]
-	autocrlf = true
+	editor = vim
 
 [alias]
 	b  = branch
