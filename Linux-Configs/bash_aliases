@@ -22,3 +22,6 @@ alias restartapache='sudo lampp restartapache'
 alias startmysql='sudo lampp startmysql'
 alias stopmysql='sudo lampp stopmysql'
 alias restartmysql='sudo lampp restartmysql'
+
+# Composer
+alias composer='$HOME/bin/composer.phar'
