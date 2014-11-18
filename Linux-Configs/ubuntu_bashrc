@@ -126,3 +126,5 @@ fi
 if [ -d "/media/storage" ]; then 
     alias storage='cd /media/storage'
 fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
