@@ -127,4 +127,10 @@ if [ -d "/media/storage" ]; then
     alias storage='cd /media/storage'
 fi
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+if [ -d "$HOME/.rvm/bin" ]; then
+	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+fi
+
+if [ -d "$HOME/.composer/vendor/bin" ]; then
+	export PATH="$PATH:$HOME/.composer/vendor/bin" # Add homestead to PATH
+fi
