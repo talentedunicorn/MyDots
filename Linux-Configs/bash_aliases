@@ -1,4 +1,10 @@
 # Aliases
+# Shortcuts
+alias ..='cd ../'
+alias ..2='cd ../../'
+alias ..3='cd ../../../'
+alias ..4='cd ../../../../'
+
 # Package Management
 
 alias installpkg='sudo apt-get install'
