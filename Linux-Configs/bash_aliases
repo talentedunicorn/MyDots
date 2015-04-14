@@ -4,6 +4,7 @@ alias ..='cd ../'
 alias ..2='cd ../../'
 alias ..3='cd ../../../'
 alias ..4='cd ../../../../'
+alias g='git'
 alias got='git pull'
 
 # Package Management
