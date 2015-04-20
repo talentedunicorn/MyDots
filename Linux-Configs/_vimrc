@@ -9,8 +9,8 @@ set visualbell		" Use visual bell (no beeping)
 set autoindent		" Auto-indent new lines
 set smartindent		" Enable smart-indent
 set shiftwidth=4	" Auto indent spaces
-set smarttab		" Enable smart-tab
 set tabstop=4		" Number of spaces per tab
+set smarttab		" Enable smart-tab
 set autoread		" Auto read when file is changed from outside
 
 " Search
@@ -19,3 +19,8 @@ set smartcase		" Enable smart-case search
 set ignorecase		" Ignore case in search ALWAYS
 
 set modifiable		" enable modifiable
+
+" UI
+set wildmenu		" Wild menu is on
+set showmatch		" Matching brackets yeah?
+
