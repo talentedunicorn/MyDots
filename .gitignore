@@ -1,0 +1,4 @@
+# Ignore tmp files
+*.swp
+*.tmp
+
