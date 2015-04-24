@@ -24,3 +24,12 @@ set modifiable		" enable modifiable
 set wildmenu		" Wild menu is on
 set showmatch		" Matching brackets yeah?
 
+" Vundle - Vim plugin manager
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Managed packages
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'scrooloose/nerdtree'
+call vundle#end()
