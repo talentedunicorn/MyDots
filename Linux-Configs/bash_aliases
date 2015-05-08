@@ -6,6 +6,7 @@ alias ..3='cd ../../../'
 alias ..4='cd ../../../../'
 alias g='git'
 alias got='git pull'
+alias gitprompt='. $HOME/MyDots/Linux-Configs/git_prompt'
 
 # Package Management
 
