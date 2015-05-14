@@ -32,4 +32,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'othree/html5.vim'
+Plugin 'jelera/vim-javascript-syntax'
 call vundle#end()
