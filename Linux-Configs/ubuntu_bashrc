@@ -134,3 +134,5 @@ fi
 if [ -d "$HOME/.composer/vendor/bin" ]; then
 	export PATH="$PATH:$HOME/.composer/vendor/bin" # Add homestead to PATH
 fi
+
+export DROPBOX_USE_LIBAPPINDICATOR=1
