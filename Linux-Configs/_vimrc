@@ -26,6 +26,9 @@ set modifiable		" enable modifiable
 " UI
 set wildmenu		" Wild menu is on
 set showmatch		" Matching brackets yeah?
+" - vim-airline
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1	" Automatically display buffers when there's only one tab open
 
 " Vundle - Vim plugin manager
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -38,4 +41,5 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'othree/html5.vim'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'bling/vim-airline'
 call vundle#end()
