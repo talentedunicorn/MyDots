@@ -42,4 +42,5 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'othree/html5.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bling/vim-airline'
+Plugin 'mattn/emmet-vim'
 call vundle#end()
