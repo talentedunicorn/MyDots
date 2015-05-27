@@ -6,7 +6,6 @@ set t_Co=256
 
 " Edit
 set number		" Set line number on
-set textwidth=100	" Line wrap (number of cols)
 set showmatch		" Highlight matching brace
 set visualbell		" Use visual bell (no beeping)
 set autoindent		" Auto-indent new lines
