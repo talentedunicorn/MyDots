@@ -15,6 +15,13 @@ set tabstop=4		" Number of spaces per tab
 set smarttab		" Enable smart-tab
 set autoread		" Auto read when file is changed from outside
 
+" Key binding
+let mapleader = "`"
+nmap <leader>w :w!<cr>	" Fast saving
+" - Buffers
+nmap <leader>hh :bp<cr>	" Previous buffer
+nmap <leader>ll :bn<cr>	" Next buffer
+
 " Search
 set hlsearch		" Highlight search results
 set smartcase		" Enable smart-case search
@@ -25,6 +32,7 @@ set modifiable		" enable modifiable
 " UI
 set wildmenu		" Wild menu is on
 set showmatch		" Matching brackets yeah?
+set showcmd			" Show command on UI
 " - vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1	" Automatically display buffers when there's only one tab open
