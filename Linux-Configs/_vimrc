@@ -12,6 +12,7 @@ set autoindent		" Auto-indent new lines
 set smartindent		" Enable smart-indent
 set shiftwidth=4	" Auto indent spaces
 set tabstop=4		" Number of spaces per tab
+set wrap			" Wrap lines
 set smarttab		" Enable smart-tab
 set autoread		" Auto read when file is changed from outside
 
@@ -21,6 +22,7 @@ nmap <leader>w :w!<cr>	" Fast saving
 " - Buffers
 nmap <leader>hh :bp<cr>	" Previous buffer
 nmap <leader>ll :bn<cr>	" Next buffer
+map <silent> <leader><cr> :noh<cr>	" Press leader and enter to remove highlights
 
 " Search
 set hlsearch		" Highlight search results
@@ -33,6 +35,15 @@ set modifiable		" enable modifiable
 set wildmenu		" Wild menu is on
 set showmatch		" Matching brackets yeah?
 set showcmd			" Show command on UI
+
+" - Syntax highlighting
+syntax enable
+try
+	colorscheme desert
+catch
+endtry
+set background=dark
+
 " - vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1	" Automatically display buffers when there's only one tab open
