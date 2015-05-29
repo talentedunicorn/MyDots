@@ -50,6 +50,7 @@ set background=dark
 " - vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1	" Automatically display buffers when there's only one tab open
+let g:airline_powerline_fonts = 1	" Set powerline fonts
 
 " Vundle - Vim plugin manager
 set rtp+=~/.vim/bundle/Vundle.vim
