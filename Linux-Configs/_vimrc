@@ -65,4 +65,5 @@ Plugin 'othree/html5.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
