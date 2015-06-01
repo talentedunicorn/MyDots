@@ -17,6 +17,7 @@ set smarttab		" Enable smart-tab
 set autoread		" Auto read when file is changed from outside
 set foldenable		" Enable code folding
 set foldmethod=manual	" Fold code manually
+set relativenumber	" Show relative number
 
 " Key binding
 map <F3> :NERDTreeToggle<CR>	" Toggle NERDTree menu
