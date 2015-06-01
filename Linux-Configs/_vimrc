@@ -19,6 +19,11 @@ set foldenable		" Enable code folding
 set foldmethod=manual	" Fold code manually
 set relativenumber	" Show relative number
 
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
 " Key binding
 map <F3> :NERDTreeToggle<CR>	" Toggle NERDTree menu
 let mapleader = "`"
