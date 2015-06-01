@@ -48,6 +48,9 @@ catch
 endtry
 set background=dark
 
+" set cshtml files to html syntax 
+au BufNewFile,BufRead *.cshtml set filetype=html
+
 " - vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1	" Automatically display buffers when there's only one tab open
