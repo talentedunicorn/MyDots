@@ -78,6 +78,7 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1	" Automatically display buffers when there's only one tab open
 let g:airline_powerline_fonts = 1	" Set powerline fonts
 let g:airline_theme = "bubblegum"	" Set airline theme
+let g:airline#extensions#branch#enabled = 1	" Enable display of current branch
 
 " Vundle - Vim plugin manager
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -93,4 +94,5 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
 call vundle#end()
