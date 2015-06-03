@@ -40,8 +40,8 @@ nmap <leader>w :w!<cr>	" Fast saving
 
 " Navigation
 " - Buffers
-nmap <F4> :bp<cr>	" Previous buffer
-nmap <F5> :bn<cr>	" Next buffer
+nmap <F1> :bp<cr>	" Previous buffer
+nmap <F2> :bn<cr>	" Next buffer
 map <silent> <leader><cr> :noh<cr>	" Press leader and enter to remove highlights
 
 " Smart way to move between windows
