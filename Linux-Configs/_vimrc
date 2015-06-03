@@ -4,6 +4,9 @@
 " Set terminal color to 256 color mode
 set t_Co=256
 
+" Set large history size
+set history=700
+
 " Edit
 set number		" Set line number on
 set showmatch		" Highlight matching brace
