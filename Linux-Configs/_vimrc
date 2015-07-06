@@ -70,7 +70,7 @@ set showcmd			" Show command on UI
 " - Syntax highlighting
 syntax enable
 try
-	colorscheme desert
+	colorscheme evening
 catch
 endtry
 set background=dark
