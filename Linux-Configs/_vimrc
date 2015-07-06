@@ -85,6 +85,14 @@ let g:airline_powerline_fonts = 1	" Set powerline fonts
 let g:airline_theme = "bubblegum"	" Set airline theme
 let g:airline#extensions#branch#enabled = 1	" Enable display of current branch
 
+" - CtrlP
+let g:ctrlp_custom_ignore = {
+	\'dir':  '\v[\/](\.(git|hg|svn)|\Debug|\Release|node_modules|bower_components)$',
+	\'file': '\v\.(exe|so|dll|class|png|jpg|jpeg|map)$',
+\}
+
+let g:ctrlp_working_path_mode = 'r'
+
 " Vundle - Vim plugin manager
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
