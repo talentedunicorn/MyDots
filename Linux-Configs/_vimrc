@@ -37,7 +37,7 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " Key binding
-map <F3> :NERDTreeToggle<CR>	" Toggle NERDTree menu
+map <F3> :Explore<cr> " Show Explore
 let mapleader = "`"
 nmap <leader>w :w!<cr>	" Fast saving
 
@@ -100,7 +100,6 @@ call vundle#begin()
 " Managed packages
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'scrooloose/nerdtree'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'othree/html5.vim'
 Plugin 'jelera/vim-javascript-syntax'
