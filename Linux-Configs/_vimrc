@@ -70,10 +70,9 @@ set showcmd			" Show command on UI
 " - Syntax highlighting
 syntax enable
 try
-	colorscheme evening
+	colorscheme desert
 catch
 endtry
-set background=dark
 
 " set cshtml files to html syntax 
 au BufNewFile,BufRead *.cshtml set filetype=html
