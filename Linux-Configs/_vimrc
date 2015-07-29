@@ -59,6 +59,7 @@ map <C-l> <C-W>l
 set hlsearch		" Highlight search results
 set smartcase		" Enable smart-case search
 set ignorecase		" Ignore case in search ALWAYS
+nmap <silent> <leader>/ :nohlsearch<cr>	" Remove search highlights
 
 set modifiable		" enable modifiable
 
