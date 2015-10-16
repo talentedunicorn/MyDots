@@ -106,4 +106,5 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-commentary'
 call vundle#end()
