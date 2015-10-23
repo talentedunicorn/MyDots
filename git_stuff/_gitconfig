@@ -8,10 +8,15 @@
 	b  = branch
 	st = status
 	co = checkout
-	ci = commit
+	ci = commit -m
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	hist = log --graph --decorate --pretty=oneline --abbrev-commit
 	ap = add -p
+	fc = commit --amend --no-edit
+	lc = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n 1
+	ps = push
+	pl = pull
+	pr = pull -r
 [push]
 	default = matching
 [color]
