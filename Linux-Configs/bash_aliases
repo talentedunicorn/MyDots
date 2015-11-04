@@ -1,12 +1,12 @@
 # Aliases
 # Shortcuts
-alias ..='cd ../'
-alias ..2='cd ../../'
-alias ..3='cd ../../../'
-alias ..4='cd ../../../../'
-alias g='git'
-alias got='git pull'
-alias gitprompt='. $HOME/MyDots/Linux-Configs/git_prompt'
+#alias ..='cd ../'
+#alias ..2='cd ../../'
+#alias ..3='cd ../../../'
+#alias ..4='cd ../../../../'
+#alias g='git'
+#alias got='git pull'
+#alias gitprompt='. $HOME/MyDots/Linux-Configs/git_prompt'
 
 # Package Management
 
@@ -22,3 +22,9 @@ alias addrepo='sudo add-apt-repository'
 
 # Composer
 alias composer='$HOME/bin/composer.phar'
+
+# Tmux 
+alias tm='tmux new -s estorm -n process'
+
+# Bluetooth fix
+alias bluetoothload='sudo pactl load-module module-bluetooth-discover'
