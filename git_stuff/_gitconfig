@@ -21,3 +21,5 @@
 	default = matching
 [color]
 	ui = auto
+[credential]
+	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring

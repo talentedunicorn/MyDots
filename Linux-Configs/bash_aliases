@@ -18,7 +18,7 @@ alias sysupdate='repoupdate && sudo apt-get upgrade'
 alias addrepo='sudo add-apt-repository' 
 
 # ubuntu fix for sudo and PATH
-# alias sudo='sudo env PATH=$PATH'
+ alias sudo='sudo env PATH=$PATH'
 
 # Composer
 alias composer='$HOME/bin/composer.phar'

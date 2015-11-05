@@ -43,8 +43,8 @@ nmap <leader>w :w!<cr>	" Fast saving
 
 " Navigation
 " - Buffers
-nmap <F1> :bp<cr>	" Previous buffer
-nmap <F2> :bn<cr>	" Next buffer
+nmap <F1> :bp!<cr>	" Previous buffer
+nmap <F2> :bn!<cr>	" Next buffer
 map <silent> <leader><delete> :bd<cr>	" Delete buffer - leader+dd
 " Press leader and space to remove highlights
 map <silent> <leader><space> :noh<cr>	
