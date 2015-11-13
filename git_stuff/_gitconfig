@@ -17,6 +17,7 @@
 	ps = push
 	pl = pull
 	pr = pull -r
+	dfiles = diff --name-only
 [push]
 	default = matching
 [color]
