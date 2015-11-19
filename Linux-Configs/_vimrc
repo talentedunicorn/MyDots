@@ -107,6 +107,9 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 " When you press gv you Ag after the selected text
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
+" Select and replace
+vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
