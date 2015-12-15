@@ -46,6 +46,7 @@ nmap <leader>w :w!<cr>	" Fast saving
 nmap <F1> :bp!<cr>	" Previous buffer
 nmap <F2> :bn!<cr>	" Next buffer
 map <silent> <leader><delete> :bd<cr>	" Delete buffer - leader+dd
+map <silent> <leader>n :enew<cr>	" Create empty buffer in current window
 " Press leader and space to remove highlights
 map <silent> <leader><space> :noh<cr>	
 
