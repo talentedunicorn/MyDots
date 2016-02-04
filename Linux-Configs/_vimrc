@@ -157,4 +157,5 @@ Plug 'bling/vim-airline'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
