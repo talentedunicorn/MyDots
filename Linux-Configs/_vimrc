@@ -20,7 +20,7 @@ set smarttab		" Enable smart-tab
 set autoread		" Auto read when file is changed from outside
 set foldenable		" Enable code folding
 set foldmethod=indent	" Fold code by indent
-set relativenumber	" Show relative number
+" set relativenumber	" Show relative number
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
