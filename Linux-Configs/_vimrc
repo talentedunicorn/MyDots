@@ -93,9 +93,9 @@ let g:ctrlp_custom_ignore = {
 	\'file': '\v\.(exe|so|dll|class|png|jpg|jpeg|map)$',
 \}
 
-let g:ctrlp_working_path_mode = 'r'
+ let g:ctrlp_working_path_mode = 'r'
 
-let g:ctrlp_cmd = 'CtrlPMixed'
+ let g:ctrlp_cmd = 'CtrlP'
 
 " faster search with ag
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
