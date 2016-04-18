@@ -17,6 +17,7 @@ set shiftwidth=4	" Auto indent spaces
 set tabstop=4		" Number of spaces per tab
 set wrap			" Wrap lines
 set smarttab		" Enable smart-tab
+set expandtab		" Convert tabs to spaces
 set autoread		" Auto read when file is changed from outside
 set foldenable		" Enable code folding
 set foldmethod=indent	" Fold code by indent
