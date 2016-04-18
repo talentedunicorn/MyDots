@@ -80,6 +80,9 @@ endtry
 " set cshtml files to html syntax 
 au BufNewFile,BufRead *.cshtml set filetype=html
 
+" set twig syntax highlighting
+au BufNewFile,BufRead *.twig set filetype=htmldjango
+
 " - vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1	" Automatically display buffers when there's only one tab open
