@@ -38,16 +38,22 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " Key binding
-map <F3> :Explore<cr> " Show Explore
+" Show Explore
+map <F3> :Explore<cr> 
 let mapleader = "`"
-nmap <leader>w :w!<cr>	" Fast saving
+" Fast saving
+nmap <leader>w :w!<cr>	
 
 " Navigation
 " - Buffers
-nmap <F1> :bp!<cr>	" Previous buffer
-nmap <F2> :bn!<cr>	" Next buffer
-map <silent> <leader><delete> :bd<cr>	" Delete buffer - leader+dd
-map <silent> <leader>n :enew<cr>	" Create empty buffer in current window
+" Previous buffer
+nmap <F1> :bp!<cr>
+" Next buffer
+nmap <F2> :bn!<cr>
+" Delete buffer - leader+dd
+map <silent> <leader><delete> :bd<cr>
+" Create empty buffer in current window
+map <silent> <leader>n :enew<cr>	
 " Press leader and space to remove highlights
 map <silent> <leader><space> :noh<cr>	
 
@@ -61,7 +67,8 @@ map <C-l> <C-W>l
 set hlsearch		" Highlight search results
 set smartcase		" Enable smart-case search
 set ignorecase		" Ignore case in search ALWAYS
-nmap <silent> <leader>/ :nohlsearch<cr>	" Remove search highlights
+" Remove search highlights
+nmap <silent> <leader>/ :nohlsearch<cr>	
 
 set modifiable		" enable modifiable
 
@@ -73,7 +80,7 @@ set showcmd			" Show command on UI
 " - Syntax highlighting
 syntax enable
 try
-	colorscheme desert
+	colorscheme evening
 catch
 endtry
 
@@ -87,7 +94,7 @@ au BufNewFile,BufRead *.twig set filetype=htmldjango
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1	" Automatically display buffers when there's only one tab open
 let g:airline_powerline_fonts = 1	" Set powerline fonts
-let g:airline_theme = "bubblegum"	" Set airline theme
+let g:airline_theme='base16_ashes' " Set airline theme
 let g:airline#extensions#branch#enabled = 1	" Enable display of current branch
 
 " - CtrlP
@@ -157,9 +164,11 @@ call plug#begin()
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'othree/html5.vim'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'plasticboy/vim-markdown'
+Plug 'rking/ag.vim'
 call plug#end()
