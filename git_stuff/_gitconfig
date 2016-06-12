@@ -19,7 +19,7 @@
 	pr = pull -r
 	dfiles = diff --name-only
 [push]
-	default = matching
+	default = simple
 [color]
 	ui = auto
 [credential]
