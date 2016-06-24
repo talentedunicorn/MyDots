@@ -23,8 +23,5 @@ alias addrepo='sudo add-apt-repository'
 # Composer
 alias composer='$HOME/bin/composer.phar'
 
-# Tmux 
-alias tm='tmux new -s estorm -n process'
-
 # Bluetooth fix
 alias bluetoothload='sudo pactl load-module module-bluetooth-discover'
