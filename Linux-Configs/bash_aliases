@@ -23,5 +23,24 @@ alias addrepo='sudo add-apt-repository'
 # Composer
 alias composer='$HOME/bin/composer.phar'
 
+# Deployer
+alias deployer='$HOME/bin/deployer.phar'
+alias dep='$HOME/bin/deployer.phar'
+
+# Tmux 
+alias tm='tmux -2 new -s home -n process'
+
+# Docker
+alias dockerStart='docker-compose start'
+alias dockerStop='docker-compose stop'
+
 # Bluetooth fix
 alias bluetoothload='sudo pactl load-module module-bluetooth-discover'
+alias dropboxStart='dropbox stop && env XDG_CURRENT_DESKTOP=Unity dropbox start'
+
+# Weather
+alias weather='curl wttr.in'
+
+# Clipboard tool
+alias pbcopy='xsel --clipboard --input'  # - copy to clipboard
+alias pbpaste='xsel --clipboard --output'  # - paste from clipboard
