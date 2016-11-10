@@ -39,7 +39,8 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " Key binding
 " Show Explore
-map <F3> :Explore<cr> 
+" map <F4> :Explore<cr> 
+map <F3> :NERDTreeToggle<CR>
 let mapleader = "`"
 " Fast saving
 nmap <leader>w :w!<cr>	
@@ -47,11 +48,11 @@ nmap <leader>w :w!<cr>
 " Navigation
 " - Buffers
 " Previous buffer
-nmap <F1> :bp!<cr>
+nmap <F1> :MBEbp<cr>
 " Next buffer
-nmap <F2> :bn!<cr>
+nmap <F2> :MBEbn<cr>
 " Delete buffer - leader+dd
-map <silent> <leader><delete> :bd<cr>
+map <silent> <leader><delete> :MBEbd<cr>
 " Create empty buffer in current window
 map <silent> <leader>n :enew<cr>	
 " Press leader and space to remove highlights
@@ -80,7 +81,7 @@ set showcmd			" Show command on UI
 " - Syntax highlighting
 syntax enable
 try
-	colorscheme evening
+	colorscheme koehler
 catch
 endtry
 
@@ -93,13 +94,23 @@ au BufNewFile,BufRead *.twig set filetype=htmldjango
 " - vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1	" Automatically display buffers when there's only one tab open
-let g:airline_powerline_fonts = 1	" Set powerline fonts
-let g:airline_theme='base16_ashes' " Set airline theme
+let g:airline_powerline_fonts = 0	" Set powerline fonts
+let g:airline_theme='base16' " Set airline theme
 let g:airline#extensions#branch#enabled = 1	" Enable display of current branch
 
+" Try to fix airline symbols alignment
+" if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.space = "\ua0"
+
+" - lightline config
+
 " - CtrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+
 let g:ctrlp_custom_ignore = {
-	\'dir':  '\v[\/](\.(git|hg|svn)|\Debug|\Release|node_modules|bower_components)$',
+	\'dir':  '\v[\/](\.(git|hg|svn)|\Debug|\Release|node_modules|bower_components|tmp)$',
 	\'file': '\v\.(exe|so|dll|class|png|jpg|jpeg|map)$',
 \}
 
@@ -157,19 +168,26 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
+set hid
 
 " vim-plug: Plugin manager
 call plug#begin()
 
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'othree/html5.vim'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'pangloss/vim-javascript'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'mattn/emmet-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'plasticboy/vim-markdown'
 Plug 'rking/ag.vim'
 Plug 'slim-template/vim-slim'
+Plug 'jwalton512/vim-blade'
+Plug 'scrooloose/nerdtree'
+Plug 'fholgado/minibufexpl.vim'
+Plug 'mxw/vim-jsx'
 call plug#end()
