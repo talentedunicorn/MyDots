@@ -36,7 +36,7 @@ alias dockerStop='docker-compose stop'
 
 # Bluetooth fix
 alias bluetoothload='sudo pactl load-module module-bluetooth-discover'
-alias dropboxStart='dropbox stop && env XDG_CURRENT_DESKTOP=Unity dropbox start'
+alias dropboxStart='dropbox stop && env XDG_CURRENT_DESKTOP=Unity QT_STYLE_OVERRIDE='' dropbox start'
 
 # Weather
 alias weather='curl wttr.in'
