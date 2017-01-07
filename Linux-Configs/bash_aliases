@@ -27,12 +27,16 @@ alias composer='$HOME/bin/composer.phar'
 alias deployer='$HOME/bin/deployer.phar'
 alias dep='$HOME/bin/deployer.phar'
 
+# Git-FTP
+alias ftpDeploy='git-ftp push'
+
 # Tmux 
 alias tm='tmux -2 new -s home -n process'
 
 # Docker
 alias dockerStart='docker-compose start'
 alias dockerStop='docker-compose stop'
+alias dockerRestart='docker-compose restart'
 
 # Bluetooth fix
 alias bluetoothload='sudo pactl load-module module-bluetooth-discover'
