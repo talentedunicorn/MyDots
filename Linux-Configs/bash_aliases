@@ -10,11 +10,11 @@
 
 # Package Management
 
-alias installpkg='sudo apt-get install'
-alias removepkg='sudo apt-get remove'
-alias repoupdate='sudo apt-get update'
+alias installpkg='sudo apt install'
+alias removepkg='sudo apt remove'
+alias repoupdate='sudo apt update'
 alias findpkg='apt-cache search'
-alias sysupdate='repoupdate && sudo apt-get upgrade'
+alias sysupdate='repoupdate && sudo apt upgrade'
 alias addrepo='sudo add-apt-repository' 
 
 # ubuntu fix for sudo and PATH
