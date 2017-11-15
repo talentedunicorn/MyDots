@@ -36,14 +36,17 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.vue :call DeleteTrailingWS()
 
 " Key binding
 " Show Explore
-" map <F4> :Explore<cr> 
 map <F3> :NERDTreeToggle<CR>
 let mapleader = "`"
 " Fast saving
 nmap <leader>w :w!<cr>	
+
+" Search and replace
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Navigation
 " - Buffers
