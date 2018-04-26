@@ -44,7 +44,8 @@ autocmd BufWrite *.vue :call DeleteTrailingWS()
 
 " Key binding
 " Show Explore
-map <F3> :NERDTreeToggle<CR>
+" map <F3> :NERDTreeToggle<CR>
+map <F3> :Explore<CR>
 let mapleader = "`"
 " Fast saving
 nmap <leader>w :w!<cr>	
@@ -55,13 +56,16 @@ vnoremap <leader>r "hy:%s/<C-r>h//gc<left><left><left>
 " Navigation
 " - Buffers
 " Previous buffer
-nmap <F1> :MBEbp<cr>
+nmap <F1> :bprev<cr>
 " Next buffer
-nmap <F2> :MBEbn<cr>
+nmap <F2> :bnext<cr>
 " Delete buffer - leader+dd
-map <silent> <leader><delete> :MBEbd<cr>
+map <silent> <leader>d :bd<cr>
+" List buffers
+nmap <leader>l :ls<cr>
+
 " Create empty buffer in current window
-map <silent> <leader>n :enew<cr>	
+" map <silent> <leader>n :enew<cr>	
 " Press leader and space to remove highlights
 map <silent> <leader><space> :noh<cr>	
 
@@ -88,8 +92,9 @@ set showcmd			" Show command on UI
 " - Syntax highlighting
 syntax enable
 try
-	colorscheme koehler
+	colorscheme 16color
 catch
+  colorscheme elflord
 endtry
 
 " set cshtml files to html syntax 
@@ -112,6 +117,7 @@ let g:ctrlp_custom_ignore = {
 
 " faster search with ag
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore node_modules
       \ --ignore .git
       \ --ignore .svn
       \ --ignore .hg
