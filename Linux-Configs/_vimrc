@@ -13,8 +13,8 @@ set showmatch		" Highlight matching brace
 set visualbell		" Use visual bell (no beeping)
 set autoindent		" Auto-indent new lines
 set smartindent		" Enable smart-indent
-set shiftwidth=4	" Auto indent spaces
-set tabstop=4		" Number of spaces per tab
+set shiftwidth=2	" Auto indent spaces
+set tabstop=2		" Number of spaces per tab
 set wrap			" Wrap lines
 set smarttab		" Enable smart-tab
 set expandtab		" Convert tabs to spaces
@@ -63,6 +63,8 @@ nmap <F2> :bnext<cr>
 map <silent> <leader>d :bd<cr>
 " List buffers
 nmap <leader>l :ls<cr>
+" Fast shell access
+nmap <leader>s :sh<cr>
 
 " Create empty buffer in current window
 " map <silent> <leader>n :enew<cr>	
@@ -146,10 +148,14 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-fugitive'
 Plug 'plasticboy/vim-markdown'
-Plug 'rking/ag.vim'
-Plug 'slim-template/vim-slim'
-Plug 'jwalton512/vim-blade'
-Plug 'scrooloose/nerdtree'
+" Plug 'rking/ag.vim'
+" Plug 'slim-template/vim-slim'
+" Plug 'jwalton512/vim-blade'
+" Plug 'scrooloose/nerdtree'
 Plug 'fholgado/minibufexpl.vim'
 Plug 'mxw/vim-jsx'
+Plug 'posva/vim-vue'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 call plug#end()
